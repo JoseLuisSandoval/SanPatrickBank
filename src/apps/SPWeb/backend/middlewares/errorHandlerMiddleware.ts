@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import httpStatus from "http-status";
-import { ResponseBase } from "../../../Contexts/Shared/application/ResponseBase";
-import { ValidationError } from "../../../Contexts/Shared/domain/ValidationError";
+import { ResponseBase } from "../../../../contexts/Shared/application/ResponseBase";
+import { ValidationError } from "../../../../contexts/Shared/domain/ValidationError";
 
 export function errorHandlerMiddleware(err: any, req: Request, res: Response, next: NextFunction) {
     

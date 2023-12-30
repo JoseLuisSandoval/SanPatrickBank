@@ -7,11 +7,13 @@
     "test": "tests"
   },
   "scripts": {
-    "dev:SPWeb:backend":"nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/Apps/SPWeb/start.ts",
+    "dev:SPWeb:backend": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/apps/SPWeb/backend/start.ts",
     "build": "tsc",
     "start": "node dist/start.js",
     "dev": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/app/start.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:features",
+    "test:features": "npm run test:SPWeb:backend:features",
+    "test:SPWeb:backend:features":  "NODE_ENV=test cucumber-js -p SPWebBackend"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -25,13 +27,16 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^10.1.0",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.10.5",
+    "@types/supertest": "^6.0.2",
     "@types/uuid": "^9.0.7",
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.2",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
