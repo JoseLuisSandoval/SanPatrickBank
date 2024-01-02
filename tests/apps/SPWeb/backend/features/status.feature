@@ -1,6 +1,6 @@
 Feature: Api Status
     In order to know thet the server is working 
-    for quality control 
+    For quality control 
     I want to know the status of the server
 
   Scenario: Check api status

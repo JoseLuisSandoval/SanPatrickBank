@@ -1,4 +1,4 @@
-import { StringValueObject } from '../../../Shared/domain/StringValueObject';
+import { StringValueObject } from '../../../../Shared/domain/StringValueObject';
 
 export class UserLastname extends StringValueObject {
   constructor(value: string) {

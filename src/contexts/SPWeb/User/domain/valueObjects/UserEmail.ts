@@ -1,4 +1,4 @@
-import { StringValueObject } from "../../../Shared/domain/StringValueObject";
+import { StringValueObject } from '../../../../Shared/domain/StringValueObject';
 
 export class UserEmail extends StringValueObject {
   constructor(value: string) {
@@ -8,7 +8,7 @@ export class UserEmail extends StringValueObject {
 
   private ensureIsValidEmail(value: string) {
     if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-      throw new Error("The email adress should be valid.");
+      throw new Error('The email adress should be valid.');
     }
   }
 }

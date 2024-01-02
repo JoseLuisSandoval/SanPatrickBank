@@ -22,10 +22,10 @@ Then('The response status code should be {int}', async (status: number) => {
   _response = await _request.expect(status);
 });
 
-Given('I send a POST request to {string} with body:', (route: string, body: string) => {
+Given('I send a PUT request to {string} with body:', (route: string, body: string) => {
 	if (application.httpServer) {
 		_request = request(application.httpServer)
-		  .post(route)
+		  .put(route)
 		  .send(JSON.parse(body) as object);
 	  }
 });
