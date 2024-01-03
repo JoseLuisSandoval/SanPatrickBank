@@ -9,6 +9,7 @@ import { UserPassword } from '../../../../../src/contexts/SPWeb/User/domain/valu
 import { UserPhone } from '../../../../../src/contexts/SPWeb/User/domain/valueObjects/UserPhone';
 import { IRequestHandler } from '../../../../../src/contexts/Shared/application/IRequestHandler';
 import { ValidationError } from '../../../../../src/contexts/Shared/domain/ValidationError';
+import { hashPassword } from '../../../../../src/contexts/Shared/infrastructure/hashPassword';
 import { UserRepositoryMock } from '../mocks/UserRepositoryMock';
 import { faker } from '@faker-js/faker';
 
@@ -28,7 +29,7 @@ describe('UserCreator', () => {
     const lastname = faker.person.lastName();
     const phone = faker.string.numeric('##########');
     const email = faker.internet.email();
-    const password = faker.internet.password();
+    const password = await hashPassword(faker.internet.password());
     const createdBy = 'system';
 
     const expectedUser = new User(
@@ -51,7 +52,7 @@ describe('UserCreator', () => {
     const lastname = faker.person.lastName();
     const phone = faker.string.numeric('##########');
     const email = faker.internet.email();
-    const password = faker.internet.password();
+    const password = await hashPassword(faker.internet.password());
     const createdBy = 'system';
 
     expect(async () => {

@@ -16,7 +16,7 @@ import { UserEmail } from '../../domain/valueObjects/UserEmail';
 
 @injectable()
 export class CreateUserHandler implements IRequestHandler {
-  private userRepository: IUserRepository;
+  private readonly userRepository: IUserRepository;
 
   constructor(@inject('UserRepository') userRepository: IUserRepository) {
     this.userRepository = userRepository;

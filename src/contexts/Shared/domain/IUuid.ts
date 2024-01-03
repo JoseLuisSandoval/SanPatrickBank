@@ -1,5 +1,5 @@
 export interface IUuid {
     generate(): string;
-    validate(uuid: string): boolean;
+    isValidUuid(uuid: string): void;
   }
   

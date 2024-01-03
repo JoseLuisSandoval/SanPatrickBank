@@ -12,6 +12,7 @@ import { UserEmail } from '../../../../../src/contexts/SPWeb/User/domain/valueOb
 import { UserPassword } from '../../../../../src/contexts/SPWeb/User/domain/valueObjects/UserPassword';
 import { User } from '../../../../../src/contexts/SPWeb/User/domain/User';
 import { UserRepositoryMock } from '../mocks/UserRepositoryMock';
+import { hashPassword } from '../../../../../src/contexts/Shared/infrastructure/hashPassword';
 
 describe('LocalUserRepository', () => {
   let repository: IUserRepository;
@@ -31,7 +32,7 @@ describe('LocalUserRepository', () => {
     const lastname = new UserLastname(faker.person.lastName());
     const phone = new UserPhone(faker.string.numeric('##########'));
     const email = new UserEmail(faker.internet.email());
-    const password = new UserPassword(faker.internet.password());
+    const password = new UserPassword(await hashPassword(faker.internet.password()));
     const createdBy = 'system';
 
     const expectedUser = new User(userId, firstname, lastname, phone, email, password, createdBy);
